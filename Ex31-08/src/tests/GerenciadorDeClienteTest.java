@@ -1,9 +1,12 @@
-package refatoracao;
+package tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import Business.Cliente;
+import Persistence.GerenciadorDeCliente;
 
 public class GerenciadorDeClienteTest {
 	private GerenciadorDeCliente Bar1;
@@ -54,7 +57,6 @@ public class GerenciadorDeClienteTest {
 		Bar1.checkIn(c3);
 		Bar1.checkIn(c4);
 		Bar1.checkIn(c5);
-		System.out.println(Bar1.porcentagemMasculino());
 		assertEquals(Bar1.porcentagemMasculino(), 40);
 	}
 	@Test
@@ -191,6 +193,7 @@ public class GerenciadorDeClienteTest {
 		Bar1.checkIn(c10);
 		assertEquals(Bar1.achaPorCPF(1235456711), false);
 	}
+	//depois vamos aprender como testar se foi salvo certinho no arquivo
 
 
 }

@@ -1,0 +1,3 @@
+Relatório de clientes do dia: 2017/09/05
+Nome: julia CPF: 123 Idade: 12 Genero: 1 Não sócio /n
+Nome: julia2 CPF: 2 Idade: 2 Genero: M Numero Sócio: 12/n

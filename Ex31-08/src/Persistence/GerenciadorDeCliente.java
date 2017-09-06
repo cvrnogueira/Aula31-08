@@ -1,6 +1,12 @@
-package refatoracao;
+package Persistence;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+
+import Business.Cliente;
 
 public class GerenciadorDeCliente {
 	ArrayList<Cliente> clientesNoBar;
@@ -64,5 +70,30 @@ public class GerenciadorDeCliente {
 			}
 		}
 		return false;
+	}
+	public String getTodayDate(){
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+		LocalDate localDate = LocalDate.now();
+		return  dtf.format(localDate);
+	}
+	public void imprimeNoArquivoTexto() throws IOException{
+		try{	
+		    PrintWriter writer = new PrintWriter("ClientesDiaDeHoje.txt", "UTF-8");
+		    writer.println("Relatório de clientes do dia: " + getTodayDate());
+		    
+		    for(Cliente c: clientesNoBar){
+		    	writer.print("Nome: " + c.getNome() + " CPF: " + c.getCpf() + " Idade: " +c.getIdade() + " Genero: " + c.getGenero());
+		    	if(c.isSocio() == true){
+		    		writer.print(" Numero Sócio: " + c.getNroSocio());
+		    	}
+		    	else{
+		    		writer.print(" Não sócio ");
+		    	}
+		    	writer.println(" ");
+		    }
+		    writer.close();
+		} catch (IOException e) {
+			throw new IOException("Não foi possível gravar!");
+		}
 	}
 }

@@ -1,4 +1,4 @@
-package refatoracao;
+package Business;
 
 import java.util.ArrayList;
 
@@ -30,6 +30,15 @@ public class Cliente {
 	}
 	public boolean isSocio(){
 		return isSocio;
+	}
+	public String getNome(){
+		return nome;
+	}
+	public int getIdade(){
+		return idade;
+	}
+	public int getNroSocio(){
+		return nroSocio;
 	}
 	
 	
